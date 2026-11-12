@@ -10,8 +10,10 @@ and color styling throughout the css file
 
 
 :root {
+	color-scheme: light;
 	--color-ink: #264653;
 	--color-paper: #f4f1de;
+	--color-page: #f4f1de;
 	--color-primary: #264653;
 	--color-secondary: #2a9d8f;
 	--color-accent: #e9c46a;
@@ -19,6 +21,28 @@ and color styling throughout the css file
 	--color-muted: #52717a;
 	--color-border: #d9dfd9;
 	--color-surface: #ffffff;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--color-ink: #e6eeeb;
+	--color-paper: #e6eeeb;
+	--color-page: #17272d;
+	--color-primary: #102127;
+	--color-secondary: #59b8a9;
+	--color-accent: #e9c46a;
+	--color-coral: #f08a6d;
+	--color-muted: #b4c5c5;
+	--color-border: #35494f;
+	--color-surface: #213238;
+}
+
+:root[data-theme="dark"] h2 {
+	color: var(--color-ink);
+}
+
+:root[data-theme="dark"] a {
+	color: var(--color-secondary);
 }
 
 * {
@@ -35,7 +59,7 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: var(--color-paper);
+	background: var(--color-page);
 	color: var(--color-ink);
 	font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
 	font-size: 1rem;
@@ -86,6 +110,29 @@ nav ul a {
 
 nav a:hover {
 	color: var(--color-coral);
+}
+
+.theme-toggle {
+	margin-left: auto;
+	align-self: center;
+	padding: 0.5rem 0.8rem;
+	border: 1px solid var(--color-accent);
+	border-radius: 999px;
+	background: transparent;
+	color: var(--color-paper);
+	font: inherit;
+	font-size: 0.85rem;
+	cursor: pointer;
+}
+
+.theme-toggle:hover {
+	background: var(--color-accent);
+	color: var(--color-primary);
+}
+
+.theme-toggle:focus-visible {
+	outline: 0.2rem solid var(--color-accent);
+	outline-offset: 0.2rem;
 }
 
 main {
